@@ -5,10 +5,70 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        >
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="В университете отличником считается
+            студент, у которого средний балл больше: "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            />
+        <EditText
+            android:id="@+id/editTextGPA"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="Your answer"
+            android:background="@null"
+            android:layout_marginTop="30dp"
+            />
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Самый сложный этап жизни - школа. Согласен/-на?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="30dp"
+            android:textColor="@color/red"
+            />
+        <EditText
+            android:id="@+id/editTextSchool"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="Your answer"
+            android:background="@null"
+            android:layout_marginVertical="30dp"
+            />
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Минимальный возраст вступления в брак в КР: "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            />
+        <EditText
+            android:id="@+id/editTextMarriage"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="Your answer"
+            android:background="@null"
+            android:layout_marginVertical="20dp"
+            />
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="SAVE"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
 
 </FrameLayout>

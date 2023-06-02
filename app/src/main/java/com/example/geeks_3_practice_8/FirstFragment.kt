@@ -7,10 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 
 
 class FirstFragment : Fragment() {
+
+    private lateinit var age : EditText
+    private lateinit var name : EditText
+    private lateinit var lastName : EditText
+    private lateinit var buttonNext : Button
+
+    private val bottomFragment = BottomCancelFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,14 +30,28 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val age = requireActivity().findViewById<EditText>(R.id.editTextAge)
-        val buttonNext = requireActivity().findViewById<Button>(R.id.buttonNext)
-        buttonNext.setOnClickListener{
-            if(age.text.toString().toInt() > 18) {
-                findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
-            } else {
+        findViews()
 
-            }
+        buttonNext.setOnClickListener{
+            checkAnswers()
+        }
+    }
+
+    private fun findViews() {
+        age = requireActivity().findViewById(R.id.editTextAge)
+        name = requireActivity().findViewById(R.id.editTextName)
+        lastName = requireActivity().findViewById(R.id.editTextLastName)
+        buttonNext = requireActivity().findViewById(R.id.buttonNext)
+    }
+
+    private fun checkAnswers() {
+        if(name.text.toString().isEmpty() || lastName.text.toString().isEmpty() || age.text.toString().isEmpty()) {
+            Toast.makeText(context, "Fill in the blanks!", Toast.LENGTH_SHORT).show()
+        } else if(age.text.toString().toInt() == 18 || age.text.toString().toInt() > 18) {
+            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+        }
+        else {
+            bottomFragment.show(requireActivity().supportFragmentManager, "main")
         }
     }
 }
